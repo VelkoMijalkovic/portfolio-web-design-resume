@@ -144,6 +144,30 @@ ul {
         transform: scaleX(1);
     }
 }
+.progress-line.html span::after{
+    content: "90%";
+}
+.progress-line.javascript span::after{
+    content: "80%";
+}
+.progress-line.css span::after{
+    content: "90%";
+}
+.progress-line.python span::after{
+    content: "50%";
+}
+.progress-line.wordpress span::after{
+    content: "90%";
+}
+.progress-line.git span::after{
+    content: "55%";
+}
+.progress-line.vue span::after{
+    content: "65%";
+}
+.progress-line.sass span::after{
+    content: "80%";
+}
 
 .progress-line.html span{
     width: 90%;
@@ -152,7 +176,7 @@ ul {
     width: 80%;
 }
 .progress-line.css span{
-    width: 75%;
+    width: 90%;
 }
 .progress-line.python span{
     width: 50%;
@@ -162,6 +186,12 @@ ul {
 }
 .progress-line.git span{
     width: 55%;
+}
+.progress-line.vue span{
+    width: 65%;
+}
+.progress-line.sass span{
+    width: 80%;
 }
 
 .bar .progress-line span::before {
@@ -200,24 +230,7 @@ ul {
     }
 }
 
-.progress-line.html span::after{
-    content: "90%";
-}
-.progress-line.javascript span::after{
-    content: "80%";
-}
-.progress-line.css span::after{
-    content: "75%";
-}
-.progress-line.python span::after{
-    content: "50%";
-}
-.progress-line.wordpress span::after{
-    content: "90%";
-}
-.progress-line.git span::after{
-    content: "55%";
-}
+
 
 
 
