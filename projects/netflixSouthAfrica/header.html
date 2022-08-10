@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/header.css" />
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+    <title>Netflix | Watch</title>
+  </head>
+  <body id="app">
+    <header>
+      <a href="#" class="logo"><img src="images/netflixLogo.jpg" /></a>
+      <ul class="navigation">
+        <li v-for="x in menu">
+          <a v-bind:href="'#'+x.href">{{ x }}</a>
+        </li>
+      </ul>
+      <div class="search">
+        <input type="text" placeholder="Search" />
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </div>
+    </header>
+    <div class="banner">
+      <img src="images/BackgroundForMovie.jpg" class="bg" />
+      <div class="content">
+        <img src="images/name.png" class="movieTitle" />
+        <h4>
+          <span>Action Adventure Sci-Fi</span>
+          <span><i>9+</i></span>
+          <span>2h 4min</span>
+          <span>1980</span>
+        </h4>
+        <p>
+          After the Rebels are brutally overpowered by the Empire on the ice
+          planet Hoth, Luke Skywalker begins Jedi training with Yoda, while his
+          friends are pursued across the galaxy by Darth Vader and bounty hunter
+          Boba Fett.
+        </p>
+        <div class="buttons">
+          <a href="#"><i class="fa fa-play" aria-hidden="true"> Play</i></a>
+          <a @click="showUserList(); importUserList();"
+            ><i class="fa fa-plus" aria-hidden="true"> My List</i></a
+          >
+        </div>
+      </div>
+      <a href="#" class="play" @click="isActive = !isActive"
+        ><img src="images/playbutton.png" />Watch Trailer</a
+      >
+    </div>
+    <div v-if="isActive" :class="{trailer : isActive}">
+      <video src="images/trailer.mp4" controls="true" autoplay="false"></video>
+      <img @click="isActive = !isActive" src="images/close.png" class="close" />
+    </div>
+    <div v-show="listVisible" class="carousel"  id="userlist" >
+      <h2>My List</h2>
+      <div class="carouselbox" id="myList"></div>
+      <a class="switchLeft sliderButton" @click="sliderScrollLeft('myList')"
+        ><</a
+      >
+      <a class="switchRight sliderButton" @click="sliderScrollRight('myList')"
+        >></a
+      >
+    </div>
+
+    <div class="carousel">
+      <h2>Coming Soon</h2>
+      <div class="carouselbox" id="Upcoming"></div>
+      <a class="switchLeft sliderButton" @click="sliderScrollLeft('Upcoming')"
+        ><</a
+      >
+      <a class="switchRight sliderButton" @click="sliderScrollRight('Upcoming')"
+        >></a
+      >
+    </div>
+    <div class="carousel">
+      <h2>New Arrival Movies</h2>
+      <div class="carouselbox" id="Latest"></div>
+      <a class="switchLeft sliderButton" @click="sliderScrollLeft('Latest')"
+        ><</a
+      >
+      <a class="switchRight sliderButton" @click="sliderScrollRight('Latest')"
+        >></a
+      >
+    </div>
+    <div class="carousel">
+      <h2>Latest Netflix Original TV shows</h2>
+      <div class="carouselbox" id="LatestTV"></div>
+      <a class="switchLeft sliderButton" @click="sliderScrollLeft('LatestTV')"
+        ><</a
+      >
+      <a class="switchRight sliderButton" @click="sliderScrollRight('LatestTV')"
+        >></a
+      >
+    </div>
+    <div class="carousel">
+      <h2>Comedy Movies</h2>
+      <div class="carouselbox" id="Comedy"></div>
+      <a class="switchLeft sliderButton" @click="sliderScrollLeft('Comedy')"
+        ><</a
+      >
+      <a class="switchRight sliderButton" @click="sliderScrollRight('Comedy')"
+        >></a
+      >
+    </div>
+    <div class="carousel">
+      <h2>For the Kids</h2>
+      <div class="carouselbox" id="Kids"></div>
+      <a class="switchLeft sliderButton" @click="sliderScrollLeft('Kids')"><</a>
+      <a class="switchRight sliderButton" @click="sliderScrollRight('Kids')"
+        >></a
+      >
+    </div>
+    <div class="carousel">
+      <h2>Horror Movies</h2>
+      <div class="carouselbox" id="Horror"></div>
+      <a class="switchLeft sliderButton" @click="sliderScrollLeft('Horror')"
+        ><</a
+      >
+      <a class="switchRight sliderButton" @click="sliderScrollRight('Horror')"
+        >></a
+      >
+    </div>
+    <div class="carousel">
+      <h2>Documentary Series</h2>
+      <div class="carouselbox" id="Documentary"></div>
+      <a
+        class="switchLeft sliderButton"
+        @click="sliderScrollLeft('Documentary')"
+        ><</a
+      >
+      <a
+        class="switchRight sliderButton"
+        @click="sliderScrollRight('Documentary')"
+        >></a
+      >
+    </div>
+    <div class="carousel">
+      <h2>Musical Movies</h2>
+      <div class="carouselbox" id="Musical"></div>
+      <a class="switchLeft sliderButton" @click="sliderScrollLeft('Musical')"
+        ><</a
+      >
+      <a class="switchRight sliderButton" @click="sliderScrollRight('Musical')"
+        >></a
+      >
+    </div>
+    <div class="carousel">
+      <h2>Fantasy Movies</h2>
+      <div class="carouselbox" id="Fantasy"></div>
+      <a class="switchLeft sliderButton" @click="sliderScrollLeft('Fantasy')"
+        ><</a
+      >
+      <a class="switchRight sliderButton" @click="sliderScrollRight('Fantasy')"
+        >></a
+      >
+    </div>
+    <div class="carousel">
+      <h2>Crime TV Shows</h2>
+      <div class="carouselbox" id="CrimeTV"></div>
+      <a class="switchLeft sliderButton" @click="sliderScrollLeft('CrimeTV')"
+        ><</a
+      >
+      <a class="switchRight sliderButton" @click="sliderScrollRight('CrimeTV')"
+        >></a
+      >
+    </div>
+    <div class="carousel">
+      <h2>Thriller Movies</h2>
+      <div class="carouselbox" id="Thriller"></div>
+      <a class="switchLeft sliderButton" @click="sliderScrollLeft('Thriller')"
+        ><</a
+      >
+      <a class="switchRight sliderButton" @click="sliderScrollRight('Thriller')"
+        >></a
+      >
+    </div>
+    <div class="carousel">
+      <h2>Drama TV Shows</h2>
+      <div class="carouselbox" id="DramaTV"></div>
+      <a class="switchLeft sliderButton" @click="sliderScrollLeft('DramaTV')"
+        ><</a
+      >
+      <a class="switchRight sliderButton" @click="sliderScrollRight('DramaTV')"
+        >></a
+      >
+    </div>
+    <div class="carousel">
+      <h2>Reality TV</h2>
+      <div class="carouselbox" id="Reality"></div>
+      <a class="switchLeft sliderButton" @click="sliderScrollLeft('Reality')"
+        ><</a
+      >
+      <a class="switchRight sliderButton" @click="sliderScrollRight('Reality')"
+        >></a
+      >
+    </div>
+
+    <script type="application/javascript" src="scripts/header.js"></script>
+    <script>
+      app.mount("#app");
+    </script>
+  </body>
+</html>
