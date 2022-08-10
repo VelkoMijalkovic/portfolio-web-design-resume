@@ -2,7 +2,10 @@ body {
     background-color: #4e575f !important;
     font-family: 'Roboto', sans-serif;
 }
-
+#selfImage {
+    border-radius: 4% !important;
+    border-color: #4e575f;
+  }
 
 h1 {
     color: #FFF !important;
@@ -56,8 +59,9 @@ ul {
 
 .jumbotron {
     width: 100%;
-    background-image: url(../images/backgroundPhoto_720x440.jpg);
+    background-image: url(../images/backgroundPhoto.jpg);
     background-size: 100%;
+    border-radius: 0px 0px 4px 4px !important;
 }
 
 .btn {
@@ -163,12 +167,14 @@ ul {
     content: "55%";
 }
 .progress-line.vue span::after{
-    content: "65%";
+    content: "85%";
 }
 .progress-line.sass span::after{
     content: "80%";
 }
-
+.progress-line.bootstrap span::after{
+    content: "90%";
+}
 .progress-line.html span{
     width: 90%;
 }
@@ -188,10 +194,13 @@ ul {
     width: 55%;
 }
 .progress-line.vue span{
-    width: 65%;
+    width: 85%;
 }
 .progress-line.sass span{
     width: 80%;
+}
+.progress-line.bootstrap span{
+    width: 90%;
 }
 
 .bar .progress-line span::before {
