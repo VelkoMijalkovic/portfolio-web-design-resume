@@ -166,6 +166,9 @@ ul {
 .progress-line.git span::after{
     content: "55%";
 }
+.progress-line.github span::after{
+    content: "80%";
+}
 .progress-line.vue span::after{
     content: "85%";
 }
@@ -202,7 +205,9 @@ ul {
 .progress-line.bootstrap span{
     width: 90%;
 }
-
+.progress-line.bootstrap span{
+    width: 80%;
+}
 .bar .progress-line span::before {
     position: absolute;
     content: "";
@@ -461,4 +466,13 @@ ul.timeline > li:before {
 
 #bothbuttons {
     top: 20rem;
+}
+
+#apilink {
+    color: green;
+}
+
+#apilink:hover {
+    color: red !important;
+   
 }
