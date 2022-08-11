@@ -476,3 +476,12 @@ ul.timeline > li:before {
     color: red !important;
    
 }
+
+#printbtn {
+    color: white;
+
+}
+
+#printbtn:hover {
+    cursor: pointer;
+}
