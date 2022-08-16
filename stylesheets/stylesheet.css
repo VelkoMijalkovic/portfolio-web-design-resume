@@ -60,6 +60,7 @@ ul {
 .jumbotron {
     width: 100%;
     background-image: url(../images/backgroundPhoto.jpg);
+    background-repeat: no-repeat;
     background-size: 100%;
     border-radius: 0px 0px 4px 4px !important;
 }
@@ -444,7 +445,7 @@ ul.timeline > li:before {
     align-self: center;
 }
 
-#carouselcard {
+.carouselcard {
     background-color:#6665ee !important;
     border-radius: 0.3rem;
 }
@@ -456,7 +457,7 @@ ul.timeline > li:before {
     color:#ffffff !important;
 }
 
-#carouselimg {
+.carouselimg {
     border-radius: 1rem !important;
 }
 
@@ -487,3 +488,17 @@ ul.timeline > li:before {
 }
 
 
+@media(max-width: 768px) {
+   .carouselimg {
+            width: 220px;
+    }
+    .carouselcard {
+        font-size: 0.8rem;
+    }
+    .jumbotron {
+        background-size: auto;
+    }
+    #longtitle {
+        font-size: 2rem !important;
+    }
+}
