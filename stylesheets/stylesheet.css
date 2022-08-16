@@ -207,7 +207,7 @@ ul {
     width: 90%;
 }
 .progress-line.bootstrap span{
-    width: 80%;
+    width: 90%;
 }
 .bar .progress-line span::before {
     position: absolute;
