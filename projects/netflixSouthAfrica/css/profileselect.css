@@ -65,3 +65,9 @@ section h1 {
     color: white;
     border: 1px solid white;
 }
+
+@media(max-width: 667px) {
+    img {
+        width: 10px;
+    }
+}
